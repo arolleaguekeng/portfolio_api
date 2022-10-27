@@ -1,11 +1,11 @@
 from django.db import models
 
 
-class Project:
+class Project(models.Model):
     name: models.CharField(max_length=30)
     description: models.CharField(max_length=150)
     created: models.DateField()
     statut: models.BooleanField
     link: models.CharField(max_length=200)
     picture: models.CharField(max_length=255)
-    createdAt: models.DateTimeField
+    created_ad: models.DateTimeField
