@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 
 # generic method for get element By Id
-def generic_get_by_id(request, table, serializer, _id):
+def generic_get_by_id(request, table, serializer):
     """
     This Method get one item from server and return Json response.
 
@@ -21,11 +21,9 @@ def generic_get_by_id(request, table, serializer, _id):
         def get(self, request, format=None):
             return generic_get_by_id(request, table, serializer, "id")
     """
-    id = request.query_params[_id]
 
     if id is not None:
-        result = table.objects.get(id=id)
-        # result = request.data
+        result = table.objects.get(id=1)
         serializer = serializer(instance=result, data=result, partial=True)
         if serializer.is_valid():
             serializer.save()
